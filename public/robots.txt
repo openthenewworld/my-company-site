@@ -1,2 +1,4 @@
 User-agent: *
-Disallow:
+Allow: /
+
+Sitemap: https://my-company-site-9v3.pages.dev/sitemap-index.xml
