@@ -1,0 +1,56 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+const metadata = {
+  title: 'Ice Fishing Reels | OEM & Wholesale Supplier',
+  description: 'Ice fishing reels for OEM and wholesale. MOQ 1,000 pcs, custom logo, color and packaging.',
+};
+
+const products = [
+  {
+    name: 'Ice Fishing Reel',
+    image: '/ice-reel-1.jpg',
+    desc: 'Compact ice fishing reel with a mechanical digit counter, built for tackle brands and distributors.',
+    specs: [
+      'Mechanical digit counter window',
+      'Orange control knob, white body',
+      'Custom logo, color and packaging available',
+      'MOQ: 1,000 pcs',
+    ],
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <section class="mx-auto max-w-6xl px-4 py-16 sm:px-6">
+    <p class="text-center text-base font-semibold uppercase tracking-wide text-secondary dark:text-blue-200">Products</p>
+    <h1 class="mt-2 text-center text-4xl font-bold md:text-5xl">Our Products</h1>
+    <p class="mx-auto mt-4 max-w-2xl text-center text-muted">
+      OEM and wholesale supply for tackle brands and distributors. MOQ 1,000 pcs.
+    </p>
+
+    <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        products.map((p) => (
+          <div class="overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm dark:border-gray-700 dark:bg-slate-800">
+            <img src={p.image} alt={p.name} class="aspect-square w-full bg-white object-contain" loading="lazy" />
+            <div class="p-6">
+              <h2 class="text-xl font-bold">{p.name}</h2>
+              <p class="mt-2 text-muted">{p.desc}</p>
+              <ul class="mt-4 space-y-1 text-sm">
+                {p.specs.map((s) => <li>• {s}</li>)}
+              </ul>
+              <a href="/contact" class="btn-primary mt-6 inline-block">Request a Quote</a>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-16 rounded-xl bg-gray-50 p-8 text-center dark:bg-slate-800">
+      <h2 class="text-2xl font-bold">Need a Custom Design?</h2>
+      <p class="mt-2 text-muted">Custom logo, color and packaging. Send us your requirements.</p>
+      <a href="/contact" class="btn-primary mt-6 inline-block">Get a Free Quote</a>
+    </div>
+  </section>
+</Layout>
